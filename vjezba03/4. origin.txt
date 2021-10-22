@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(void)
+{
+    int broj,kubbroja,lastdig1,lastdig2;
+    printf("Unesite neki broj: \n");
+    scanf("%d",&broj);
+    kubbroja=broj*broj*broj;
+    printf("Kub unesenog broja %d je %d\n",broj,kubbroja);
+    lastdig1=broj%10;
+    lastdig2=kubbroja%10;
+    if(lastdig1==lastdig2)
+    {
+        printf("Zadnja znamenka broja i kuba tog broja je ista!\n");
+    }
+    else
+    {
+        printf("Zadnja znamenka nije ista!\n");
+    }
+    return 0;
+}

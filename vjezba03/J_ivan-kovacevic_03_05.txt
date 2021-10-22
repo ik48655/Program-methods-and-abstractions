@@ -1,0 +1,82 @@
+/* Napisati funkciju koja vraća promijenjen peteroznamenkasti broj na način da svaku
+znamenku uveća za 1. Napisati program u kojem korisnik unosi broj sve dok ne unese
+peteroznamenkasti broj (koristiti naredbu continue).
+Primjer: Za broj 43992 funkcija vraća 54003.
+*/
+#include<stdio.h>
+int inc_dig(int broj)
+{
+    int suma;suma=0;
+    int faktor=1;
+    while(broj>0)
+    {
+        if(broj%10==9)
+        {
+            if(faktor==1)
+            {
+                broj=broj-9;
+            }
+            else
+            {
+                suma=suma+(faktor%10);
+            }
+        }
+        else
+        {
+            suma=suma+(((broj+1)%10)*faktor);
+        }
+        faktor=faktor*=10;
+        broj=broj/10;
+    }
+    return suma;
+}
+int main(void)
+{
+    int unos,funkcija;
+    while(unos<10000)
+    {
+        printf("Unesite neki broj: ");
+        scanf("%d",&unos);
+        continue;
+    }
+    funkcija=inc_dig(unos);
+    printf("%d",funkcija);
+    return 0;
+}
+//////////////////////////////////////////////////////
+#include<stdio.h>
+int inc_dig(int broj)
+{
+    int privr,faktor=1,uvecani;
+    privr=broj;
+    while(privr)
+    {
+        privr=privr/10;
+        faktor=faktor*10;
+    }
+    while(faktor>1)
+    {
+        faktor=faktor/10;
+        privr=(broj/faktor)+1;
+        if(privr==10)
+        {
+            privr=privr-10;
+        }
+        uvecani=(privr*faktor)+uvecani;
+        broj=broj%faktor;
+    }
+    return uvecani;
+}
+int main(void)
+{
+    int unos,funkcija;
+    while(unos<10000)
+    {
+        printf("Unesite neki broj: ");
+        scanf("%d",&unos);
+        continue;
+    }
+    funkcija=inc_dig(unos);
+    printf("%d",funkcija);
+    return 0;
+}
