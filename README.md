@@ -1,5 +1,5 @@
 # Program-methods-and-abstractions
-Problem exercises in PMA
+Problem exercises in C
 
 Year I.
 
